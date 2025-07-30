@@ -16,6 +16,7 @@ class CoinMapper {
             price = dto.price,
             lastUpdate = dto.lastUpdate,
             highDay = dto.highDay,
+            lowDay = dto.lowDay,
             lastMarket = dto.lastMarket,
             imageUrl = dto.imageUrl
         )
@@ -52,6 +53,7 @@ class CoinMapper {
             price = dbModel.price,
             lastUpdate = dbModel.lastUpdate,
             highDay = dbModel.highDay,
+            lowDay = dbModel.lowDay,
             lastMarket = dbModel.lastMarket,
             imageUrl = dbModel.imageUrl
         )
