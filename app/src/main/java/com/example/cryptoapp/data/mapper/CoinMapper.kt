@@ -1,4 +1,4 @@
-package com.example.cryptoapp.data.database.mapper
+package com.example.cryptoapp.data.mapper
 
 import com.example.cryptoapp.data.database.CoinInfoDbModel
 import com.example.cryptoapp.data.network.model.CoinInfoDto
@@ -12,7 +12,7 @@ import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
 
-class CoinMapper {
+class CoinMapper @Inject constructor() {
 
     fun mapDtoToDbModel(dto: CoinInfoDto) = CoinInfoDbModel(
         fromSymbol = dto.fromSymbol,
@@ -24,7 +24,6 @@ class CoinMapper {
         lastMarket = dto.lastMarket,
         imageUrl = BASE_IMAGE_URL + dto.imageUrl
     )
-
 
     fun mapJsonContainerToListCoinInfo(jsonContainer: CoinInfoJsonContainerDto) : List<CoinInfoDto>{
         val result = mutableListOf<CoinInfoDto>()
@@ -44,8 +43,8 @@ class CoinMapper {
         return result
     }
 
-    fun mapNamesListToString(namesList: CoinNamesListDto): String{
-        return namesList.names?.map{
+    fun mapNamesListToString(namesListDto: CoinNamesListDto): String {
+        return namesListDto.names?.map {
             it.coinName?.name
         }?.joinToString(",") ?: ""
     }
